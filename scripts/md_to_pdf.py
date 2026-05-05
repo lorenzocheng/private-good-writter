@@ -82,9 +82,13 @@ def generate_pdf(md_file, output_file=None):
     return output_file
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2 or sys.argv[1] in ['-h', '--help']:
         print("Usage: python3 md_to_pdf.py <input.md> [output.pdf]")
-        sys.exit(1)
+        print("\nConvert Markdown files to PDF with company branding.")
+        print("\nArguments:")
+        print("  input.md    Path to the Markdown file to convert")
+        print("  output.pdf  Path for the output PDF (optional, defaults to input name with .pdf)")
+        sys.exit(0)
 
     input_file = Path(sys.argv[1])
     output_file = Path(sys.argv[2]) if len(sys.argv) > 2 else None
