@@ -56,7 +56,7 @@ Claude 根据审阅报告自动优化内容。
 用户查看优化后的版本，确认或提出修改。
 
 ### 7. 输出阶段
-使用 `scripts/md_to_pdf.py` 将 Markdown 转换为带公司格式的 PDF，输出到 `output/` 目录。
+使用 `node scripts/gen_docx.js` 将 Markdown 转换为带公司格式的 Word 文档，输出到 `output/` 目录。
 
 ### 8. 反馈阶段
 记录整个过程中的用户反馈到 `docs/feedback/` 目录，用于系统进化。
@@ -66,13 +66,11 @@ Claude 根据审阅报告自动优化内容。
 ```
 goodWritter/
 ├── .logo/                    # 公司Logo素材
-├── .template/                # PDF模板文件
 ├── drafts/                   # 所有草稿文件（Markdown格式）
-├── output/                   # 最终PDF输出
+├── output/                   # 最终Word文档输出
 ├── scripts/                  # 工具脚本
-│   ├── md_to_pdf.py         # Markdown转PDF脚本
-│   ├── template.html        # HTML模板
-│   └── style.css            # PDF样式表
+│   ├── gen_docx.js          # Markdown转Word脚本
+│   └── template.typ         # Typst排版模板（备用）
 ├── docs/
 │   ├── feedback/            # 反馈日志
 │   └── superpowers/         # 设计文档和计划
@@ -84,19 +82,16 @@ goodWritter/
 
 - **草稿**：`YYYYMMDD_文档类型_简短描述.md`
   - 示例：`20260505_投资人简报_4月月报.md`
-- **输出**：`YYYYMMDD_文档类型_简短描述.pdf`
-  - 示例：`20260505_投资人简报_4月月报.pdf`
+- **输出**：`YYYYMMDD_文档类型_简短描述.docx`
+  - 示例：`20260505_投资人简报_4月月报.docx`
 
-## PDF生成命令
+## Word文档生成命令
 
 ```bash
-# 从Markdown生成PDF
-python3 scripts/md_to_pdf.py drafts/文档名.md output/文档名.pdf
+# 从Markdown生成Word文档
+node scripts/gen_docx.js
 
-# 批量生成（示例）
-for f in drafts/*.md; do
-    python3 scripts/md_to_pdf.py "$f" "output/$(basename "$f" .md).pdf"
-done
+# 如需修改输入文件，编辑 scripts/gen_docx.js 中的路径
 ```
 
 ## 与公司资料库集成
@@ -137,7 +132,7 @@ done
 
 ## Getting Started
 
-1. **安装依赖**：`pip3 install -r requirements.txt`
+1. **安装依赖**：`pip3 install -r requirements.txt` && `npm install`
 2. **创建草稿**：在 `drafts/` 目录创建 Markdown 文件
-3. **生成PDF**：运行 `python3 scripts/md_to_pdf.py drafts/文件.md output/文件.pdf`
+3. **生成Word文档**：运行 `node scripts/gen_docx.js`
 4. **记录反馈**：在 `docs/feedback/` 目录记录使用反馈

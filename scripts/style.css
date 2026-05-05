@@ -1,58 +1,38 @@
 @page {
     size: A4;
-    margin: 2.5cm;
-    @top-center {
-        content: "";
-    }
-    @bottom-center {
-        content: counter(page) " / " counter(pages);
-        font-size: 10pt;
-        color: #666;
-    }
+    margin: 2cm;
 }
 
 body {
     font-family: "Noto Serif CJK SC", "Liberation Serif", serif;
-    font-size: 12pt;
-    line-height: 1.8;
+    font-size: 11pt;
+    line-height: 1.6;
     color: #333;
+    position: relative;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 2cm;
-    border-bottom: 2pt solid #0066cc;
-    padding-bottom: 1cm;
+.page-logo {
+    position: fixed;
+    top: 1cm;
+    right: 1cm;
+    z-index: 100;
 }
 
-.logo {
-    width: 150px;
+.page-logo img {
+    width: 50px;
     height: auto;
 }
 
-.company-name {
-    font-size: 14pt;
-    font-weight: bold;
-    color: #0066cc;
-    margin-top: 0.5cm;
-}
-
-h1 {
-    font-size: 24pt;
-    color: #0066cc;
-    text-align: center;
-    margin-bottom: 1cm;
-}
-
-.meta {
-    text-align: center;
-    margin-bottom: 1.5cm;
-    font-size: 11pt;
+.page-footer {
+    position: fixed;
+    bottom: 1cm;
+    right: 1cm;
+    font-size: 9pt;
     color: #666;
 }
 
-.meta span {
-    margin: 0 0.5cm;
+main {
+    margin-top: 1cm;
 }
 
 .content {
@@ -60,42 +40,76 @@ h1 {
 }
 
 h2 {
-    font-size: 16pt;
+    font-size: 14pt;
     color: #0066cc;
-    border-bottom: 1pt solid #ccc;
-    padding-bottom: 0.3cm;
-    margin-top: 1.5cm;
+    margin-top: 1cm;
+    margin-bottom: 0.5cm;
 }
 
 h3 {
-    font-size: 14pt;
+    font-size: 12pt;
     color: #333;
-    margin-top: 1cm;
+    margin-top: 0.8cm;
+    margin-bottom: 0.3cm;
 }
 
 p {
-    margin-bottom: 0.5cm;
+    margin-bottom: 0.4cm;
     text-indent: 2em;
 }
 
 ul, ol {
     margin-left: 2em;
-    margin-bottom: 0.5cm;
+    margin-bottom: 0.4cm;
 }
 
 li {
-    margin-bottom: 0.3cm;
+    margin-bottom: 0.2cm;
 }
 
-footer {
-    margin-top: 2cm;
-    border-top: 1pt solid #ccc;
-    padding-top: 0.5cm;
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.8cm 0;
     font-size: 10pt;
-    color: #666;
-    text-align: center;
 }
 
-.company-info {
-    font-style: italic;
+th, td {
+    border: 1pt solid #333;
+    padding: 0.2cm 0.4cm;
+    text-align: left;
+}
+
+th {
+    background-color: #0066cc;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+/* Signature styling */
+.signature {
+    text-align: right;
+    margin-top: 2cm;
+    page-break-inside: avoid;
+}
+
+.signature p {
+    text-indent: 0;
+    margin-bottom: 0.2cm;
+}
+
+/* Remove horizontal rules */
+hr {
+    display: none;
+}
+
+/* Strong text */
+strong {
+    font-weight: bold;
+    color: #333;
 }

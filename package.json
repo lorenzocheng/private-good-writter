@@ -1,0 +1,27 @@
+{
+  "name": "goodwritter",
+  "version": "1.0.0",
+  "description": "毅湃科技（e-Pi Tech）的文档写作工作空间，专注于公司对外文章的写作任务。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorenzocheng/private-good-writter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lorenzocheng/private-good-writter/issues"
+  },
+  "homepage": "https://github.com/lorenzocheng/private-good-writter#readme",
+  "dependencies": {
+    "docx": "^9.6.1"
+  }
+}

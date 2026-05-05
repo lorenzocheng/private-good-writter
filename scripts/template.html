@@ -6,26 +6,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="../.logo/LOGO.png" alt="毅湃科技" class="logo">
-        <div class="company-name">毅湃科技（e-Pi Tech）</div>
-    </header>
+    <div class="page-logo">
+        <img src=".logo/LOGO.png" alt="毅湃科技">
+    </div>
 
     <main>
-        <h1>{{ title }}</h1>
-        <div class="meta">
-            <span class="date">{{ date }}</span>
-            <span class="author">{{ author }}</span>
-            <span class="doc-type">{{ doc_type }}</span>
-        </div>
         <div class="content">
             {{ content }}
         </div>
     </main>
 
-    <footer>
-        <div class="page-number"></div>
-        <div class="company-info">毅湃科技 | 单壁碳纳米管 | 全钒液流电池</div>
-    </footer>
+    <div class="page-footer">
+        <span class="page-number"></span>
+    </div>
 </body>
 </html>

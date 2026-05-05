@@ -79,31 +79,25 @@ Claude 根据审阅报告自动优化内容。
 用户查看优化后的版本，确认或提出修改。
 
 ### 7. 输出阶段
-根据 `.template/` 中的模板，将 Markdown 转换为带公司格式的 PDF。
+将 Markdown 转换为带公司格式的 Word 文档（.docx），使用 SimSun（宋体）和 Arial 字体，所有文字使用黑色，公司Logo放置在页眉右上角。
 
 ### 8. 反馈阶段
 记录整个过程中的用户反馈，用于系统进化。
 
-## PDF生成要求
+## Word文档生成要求
 
 **格式规范**：
 - 页面尺寸：A4
-- 中文字体：Noto Serif CJK SC（宋体风格替代）
-- 英文字体：Liberation Sans（Arial替代）
-- 公司Logo：使用 `.logo/LOGO.emf` 或 `.logo/LOGO.png`
-
-**字体说明**：
-- 偏好字体（宋体、Arial）未安装，使用系统现有开源字体替代
-- 未来可安装原版字体：`sudo apt install ttf-mscorefonts-installer`
-
-**模板参考**：
-- 参考文件：`.template/毅湃大事记-2025年12月初.pdf`
-- 包含公司Logo、页眉页脚、标准格式
+- 中文字体：宋体（SimSun）
+- 英文字体：Arial
+- 所有文字：黑色
+- 公司Logo：使用 `.logo/LOGO.png` 放置在页眉右上角
+- 页脚：居中页码
 
 **生成方式**：
-- 推荐使用 HTML 转 PDF（保持格式一致性）
-- 流程：Markdown → HTML（带样式）→ PDF
-- 优点：样式控制灵活，易于维护模板，支持复杂布局
+- 使用 Node.js + docx 库生成 Word 文档
+- 流程：Markdown → 解析 → docx-js 渲染 → .docx
+- 脚本路径：`scripts/gen_docx.js`
 
 ## 反馈学习机制
 
