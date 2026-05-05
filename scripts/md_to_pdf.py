@@ -5,7 +5,6 @@ Usage: python3 md_to_pdf.py <input.md> [output.pdf]
 """
 
 import sys
-import os
 from pathlib import Path
 import markdown
 from jinja2 import Template
